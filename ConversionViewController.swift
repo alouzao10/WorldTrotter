@@ -8,9 +8,12 @@
 
 import UIKit
 
+
 class ConversionViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var celsiusLabel: UILabel!
+    @IBOutlet var textField: UITextField!
+    
     var fahrenheitValue: Measurement<UnitTemperature>?{
         didSet{
             updateCelsius()
@@ -32,8 +35,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
-    @IBOutlet var textField: UITextField!
-    
+ 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer){
         textField.resignFirstResponder()
     }
@@ -63,8 +65,52 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String)->Bool{
+        /*for chr in  string{
+            if(!(chr >= 'a' && chr <= 'z') && !(chr >= 'a' && char <= 'z'))
+        }*/
+        
+        //let numSet = NSCharacterSet.decimalDigits
+        //let charSet = NSCharacterSet(charactersIn: string)
+        //return numSet.isSuperset(of: charSet as CharacterSet)
+        
+        let allowed = string.rangeOfCharacter(from: (NSCharacterSet(charactersIn: "0123456789.,-")) as CharacterSet)
+        
+        
         print("Current Text: \(textField.text)")
         print("Replacement text: \(string)")
-        return true
-    }
+        let currentLocale = Locale.current
+        let decimalSeparator = currentLocale.decimalSeparator ?? "."
+        let existingTextHasDecimal
+        
+        /*if string.rangeOfCharacter(from: NSCharacterSet.letters) != nil{
+           return false
+        }*/
+        if (existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil
+            || allowed == nil && string.characters.count >= 1){
+            return false
+            //return numSet.isSuperset(of: charSet as CharacterSet)
+        } else {
+               return true
+               //return numSet.isSuperset(of: charSet as CharacterSet)
+        }
+   }
+    
+  
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

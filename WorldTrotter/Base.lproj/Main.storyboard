@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t2Z-zE-Ueq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t2Z-zE-Ueq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,12 +13,6 @@
         <!--Convert-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <tapGestureRecognizer id="fvp-39-Y6o">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="hfY-nj-ucX"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -48,9 +42,6 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wHy-zB-dxF">
                                 <rect key="frame" x="102" y="20" width="171" height="84"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="171" id="9e4-6K-xtg"/>
-                                </constraints>
                                 <color key="textColor" red="0.81887863100000002" green="0.1122126702" blue="0.12754676409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
@@ -60,7 +51,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8d-Ae-YeB">
-                                <rect key="frame" x="97" y="168" width="181" height="84"/>
+                                <rect key="frame" x="16" y="149" width="343" height="119"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.38268497392366602" green="0.46491343600949703" blue="0.91019590736040612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -68,42 +59,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.88936515921910042" green="0.90772637900575104" blue="0.91019590736040612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="g4u-aJ-dEH" secondAttribute="trailing" constant="95" id="3xm-06-3Dz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wHy-zB-dxF" secondAttribute="trailing" constant="86" id="4kv-Sw-7pH"/>
-                            <constraint firstItem="pOO-ls-23A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="6gE-gZ-L2Z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="g4u-aJ-dEH" secondAttribute="trailing" constant="95" id="FCd-rH-yia"/>
-                            <constraint firstItem="pOO-ls-23A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="72" id="FoD-hi-ceX"/>
-                            <constraint firstItem="pOO-ls-23A" firstAttribute="centerX" secondItem="wHy-zB-dxF" secondAttribute="centerX" id="HYH-6N-MWk"/>
-                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="81" id="Hk6-dv-9ds"/>
-                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="94" id="HmI-nB-np4"/>
-                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ICu-OP-eIN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tFi-a5-fA0" secondAttribute="trailing" constant="97" id="M58-No-l4p"/>
-                            <constraint firstItem="wHy-zB-dxF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="86" id="Mc5-HC-veh"/>
-                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="wHy-zB-dxF" secondAttribute="bottom" constant="26" id="Mw3-RZ-mxV"/>
-                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NJP-qR-bsU"/>
-                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="39" id="OCb-4B-SVR"/>
-                            <constraint firstItem="pOO-ls-23A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="72" id="OXO-TW-ZzE"/>
-                            <constraint firstItem="pOO-ls-23A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PeS-ka-ADj"/>
-                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="94" id="PpJ-Tt-SlH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pOO-ls-23A" secondAttribute="trailing" constant="72" id="ReY-MG-21I"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pOO-ls-23A" secondAttribute="trailing" constant="72" id="Sb7-Mi-3wN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="H8d-Ae-YeB" secondAttribute="trailing" constant="81" id="Sj2-Pf-CAg"/>
-                            <constraint firstItem="tFi-a5-fA0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="97" id="Smv-Ts-QOO"/>
-                            <constraint firstItem="tFi-a5-fA0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="97" id="TkV-A9-ou0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tFi-a5-fA0" secondAttribute="bottom" constant="328" id="UqR-sU-wPQ"/>
-                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="wHy-zB-dxF" secondAttribute="bottom" constant="26" id="VFR-4S-OjQ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H8d-Ae-YeB" secondAttribute="bottom" constant="366" id="Y0W-86-xzA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tFi-a5-fA0" secondAttribute="trailing" constant="97" id="auO-VA-UyH"/>
-                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="1" id="cvo-LE-aKp"/>
-                            <constraint firstItem="tFi-a5-fA0" firstAttribute="top" secondItem="g4u-aJ-dEH" secondAttribute="bottom" constant="76" id="gU0-ge-DAf"/>
-                            <constraint firstItem="tFi-a5-fA0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gzH-Qk-GfD"/>
-                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="1" id="iTY-cM-EuG"/>
-                            <constraint firstItem="wHy-zB-dxF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="q2b-15-Au3"/>
-                            <constraint firstItem="tFi-a5-fA0" firstAttribute="top" secondItem="g4u-aJ-dEH" secondAttribute="bottom" constant="76" id="s6d-yc-Hmg"/>
-                            <constraint firstItem="pOO-ls-23A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="vPX-B7-Iia"/>
-                            <constraint firstItem="wHy-zB-dxF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vn3-eA-AK6"/>
-                            <constraint firstItem="wHy-zB-dxF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="wS3-aC-VG0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tFi-a5-fA0" secondAttribute="bottom" constant="328" id="zLe-OY-TWe"/>
+                            <constraint firstItem="pOO-ls-23A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="0k5-a2-0Wl"/>
+                            <constraint firstItem="pOO-ls-23A" firstAttribute="centerX" secondItem="g4u-aJ-dEH" secondAttribute="centerX" id="CYB-AU-hnB"/>
+                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fgg-vM-8Gl"/>
+                            <constraint firstItem="tFi-a5-fA0" firstAttribute="top" secondItem="g4u-aJ-dEH" secondAttribute="bottom" constant="76" id="HD3-FM-2EX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H8d-Ae-YeB" secondAttribute="bottom" constant="350" id="O1k-qf-ndP"/>
+                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="wHy-zB-dxF" secondAttribute="bottom" constant="26" id="QVo-dH-WDj"/>
+                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="centerX" secondItem="H8d-Ae-YeB" secondAttribute="centerX" id="RMN-gh-n1o"/>
+                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="1" id="Rgx-wm-i9X"/>
+                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WmY-xS-VT3"/>
+                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="centerX" secondItem="tFi-a5-fA0" secondAttribute="centerX" id="Z9s-gx-GCz"/>
+                            <constraint firstItem="wHy-zB-dxF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cSm-Qm-57t"/>
+                            <constraint firstItem="wHy-zB-dxF" firstAttribute="centerX" secondItem="pOO-ls-23A" secondAttribute="centerX" id="nYk-to-5S7"/>
+                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="20" id="npq-fr-iQj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Convert" image="ConvertIcon" id="gl1-cI-ARr"/>
@@ -112,6 +80,12 @@
                         <outlet property="textField" destination="wHy-zB-dxF" id="Yxm-nc-Nh9"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="fvp-39-Y6o">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="BYZ-38-t0r" id="UFc-aa-Rru"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
@@ -119,10 +93,6 @@
         <scene sceneID="Kil-YO-KX8">
             <objects>
                 <viewController id="ZyM-qp-mmC" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="pVx-c9-rpU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="DRc-1b-Wh6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jTX-XK-dAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,10 +102,10 @@
         <!--Tab Bar Controller-->
         <scene sceneID="HXH-UC-bbA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M7k-jW-V9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="t2Z-zE-Ueq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="1xJ-p0-CyW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -144,6 +114,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="jzy-6M-xRH"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M7k-jW-V9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="805.60000000000002" y="37.331334332833585"/>
         </scene>
