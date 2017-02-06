@@ -80,7 +80,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         print("Replacement text: \(string)")
         let currentLocale = Locale.current
         let decimalSeparator = currentLocale.decimalSeparator ?? "."
-        let existingTextHasDecimal
+        //let existingTextHasDecimal
         
         /*if string.rangeOfCharacter(from: NSCharacterSet.letters) != nil{
            return false
