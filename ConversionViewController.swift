@@ -53,6 +53,15 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        print("Time of day hour: \(hour)")
+        if hour < 17 || hour < 7{
+            self.view.backgroundColor = UIColor.darkGray
+        }
+        
         print("ConversionViewController loaded its view.")
         updateCelsius()
     }
