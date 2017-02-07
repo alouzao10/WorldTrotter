@@ -41,12 +41,15 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func fahrenheitFieldEditingChanged(_ textField: UITextField){
-        if let text = textField.text, let value = Double(text){
-            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        if let text = textField.text, let number = numberFormatter.number(from: text){
+            fahrenheitValue = Measurement(value: number.doubleValue, unit: .fahrenheit)
         } else {
             fahrenheitValue = nil
         }
     }
+    // SEE WB FOR NOTES
+    //    use viewDidAppear to change the color of the background
+    //    make the background color different on each launch
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,14 +76,15 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         //let charSet = NSCharacterSet(charactersIn: string)
         //return numSet.isSuperset(of: charSet as CharacterSet)
         
-        let allowed = string.rangeOfCharacter(from: (NSCharacterSet(charactersIn: "0123456789.,-")) as CharacterSet)
-        
+        let allowed =
+            string.rangeOfCharacter(from: (NSCharacterSet(charactersIn: "0123456789.,-")) as CharacterSet)
         
         print("Current Text: \(textField.text)")
         print("Replacement text: \(string)")
         let currentLocale = Locale.current
         let decimalSeparator = currentLocale.decimalSeparator ?? "."
-        //let existingTextHasDecimal
+        let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
+        let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
         
         /*if string.rangeOfCharacter(from: NSCharacterSet.letters) != nil{
            return false

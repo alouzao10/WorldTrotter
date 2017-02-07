@@ -22,19 +22,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is actually" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4u-aJ-dEH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is actually" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4u-aJ-dEH">
                                 <rect key="frame" x="110" y="130" width="154" height="42"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="35"/>
                                 <color key="textColor" red="0.9101959074" green="0.52789295000000003" blue="0.22435570369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOO-ls-23A">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOO-ls-23A">
                                 <rect key="frame" x="88" y="87" width="199" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.9101959074" green="0.52789295000000003" blue="0.22435570369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.9101959074" green="0.52789295000000003" blue="0.22435570369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFi-a5-fA0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in Celsius" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFi-a5-fA0">
                                 <rect key="frame" x="113" y="248" width="149" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="0.9101959074" green="0.52789295000000003" blue="0.22435570369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8d-Ae-YeB">
-                                <rect key="frame" x="16" y="149" width="343" height="119"/>
+                                <rect key="frame" x="16" y="180" width="343" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <color key="textColor" red="0.38268497392366602" green="0.46491343600949703" blue="0.91019590736040612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -60,18 +60,24 @@
                         <color key="backgroundColor" red="0.88936515921910042" green="0.90772637900575104" blue="0.91019590736040612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="pOO-ls-23A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="0k5-a2-0Wl"/>
+                            <constraint firstItem="pOO-ls-23A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2Ok-qP-Vwe"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="g4u-aJ-dEH" secondAttribute="trailing" id="2x5-hI-gwL"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="tFi-a5-fA0" secondAttribute="trailing" id="84j-gs-q0M"/>
                             <constraint firstItem="pOO-ls-23A" firstAttribute="centerX" secondItem="g4u-aJ-dEH" secondAttribute="centerX" id="CYB-AU-hnB"/>
                             <constraint firstItem="H8d-Ae-YeB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fgg-vM-8Gl"/>
                             <constraint firstItem="tFi-a5-fA0" firstAttribute="top" secondItem="g4u-aJ-dEH" secondAttribute="bottom" constant="76" id="HD3-FM-2EX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H8d-Ae-YeB" secondAttribute="bottom" constant="350" id="O1k-qf-ndP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H8d-Ae-YeB" secondAttribute="bottom" constant="378" id="O1k-qf-ndP"/>
                             <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="wHy-zB-dxF" secondAttribute="bottom" constant="26" id="QVo-dH-WDj"/>
                             <constraint firstItem="g4u-aJ-dEH" firstAttribute="centerX" secondItem="H8d-Ae-YeB" secondAttribute="centerX" id="RMN-gh-n1o"/>
                             <constraint firstItem="g4u-aJ-dEH" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="1" id="Rgx-wm-i9X"/>
                             <constraint firstItem="H8d-Ae-YeB" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WmY-xS-VT3"/>
                             <constraint firstItem="H8d-Ae-YeB" firstAttribute="centerX" secondItem="tFi-a5-fA0" secondAttribute="centerX" id="Z9s-gx-GCz"/>
+                            <constraint firstItem="tFi-a5-fA0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bMz-f7-Oks"/>
                             <constraint firstItem="wHy-zB-dxF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cSm-Qm-57t"/>
+                            <constraint firstItem="g4u-aJ-dEH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lIx-h2-xBS"/>
                             <constraint firstItem="wHy-zB-dxF" firstAttribute="centerX" secondItem="pOO-ls-23A" secondAttribute="centerX" id="nYk-to-5S7"/>
-                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="20" id="npq-fr-iQj"/>
+                            <constraint firstItem="H8d-Ae-YeB" firstAttribute="top" secondItem="pOO-ls-23A" secondAttribute="bottom" constant="51" id="npq-fr-iQj"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="pOO-ls-23A" secondAttribute="trailing" id="vAb-gu-1Il"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Convert" image="ConvertIcon" id="gl1-cI-ARr"/>
