@@ -9,16 +9,25 @@
 import UIKit
 import WebKit
 
-class WebViewController: UIViewController, WKNavigationDelegate{
+class WebViewController: UIViewController{
 
     var webView: WKWebView!
     override func loadView(){
         webView = WKWebView()
-        webView.navigationDelegate = self
+        //webView.navigationDelegate = self
         view = webView
+        
+        //super.viewDidLoad()
+        print("WebViewController loaded its view.")
+        //webView = WKWebView()
+        //view = webView
+        
+        let url = URL(string: "https://www.bignerdranch.com")!
+        webView.load(URLRequest(url: url))
+        //webView.allowsBackForwardNavigationGestures = true
     }
     
-    override func viewDidLoad() {
+   /* override func viewDidLoad() {
         super.viewDidLoad()
         print("WebViewController loaded its view.")
         webView = WKWebView()
@@ -28,7 +37,7 @@ class WebViewController: UIViewController, WKNavigationDelegate{
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         
-    }
+    }*/
       
 }
 
