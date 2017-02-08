@@ -118,11 +118,38 @@
                     <connections>
                         <segue destination="ZyM-qp-mmC" kind="relationship" relationship="viewControllers" id="352-SG-wBa"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="jzy-6M-xRH"/>
+                        <segue destination="EEu-rd-vyy" kind="relationship" relationship="viewControllers" id="EWH-Lb-qnk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7k-jW-V9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="805.60000000000002" y="37.331334332833585"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="KKH-ed-WJ1">
+            <objects>
+                <viewController id="EEu-rd-vyy" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1r5-vU-f9e"/>
+                        <viewControllerLayoutGuide type="bottom" id="v3m-DM-sQE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vc0-wW-WL3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Igu-Rx-v4B">
+                                <rect key="frame" x="67" y="67" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Web" id="UeV-7W-XgU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7J3-YH-W9V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280.8" y="768.66566716641682"/>
         </scene>
     </scenes>
     <resources>

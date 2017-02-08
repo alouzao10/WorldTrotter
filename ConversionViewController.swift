@@ -51,15 +51,22 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
     //    use viewDidAppear to change the color of the background
     //    make the background color different on each launch
     
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool){
         super.viewDidLoad()
-        
+        let red = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        let green = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        let blue = CGFloat(arc4random()) / CGFloat(UInt32.max)
+        print("Color \(red)")
+        print("Color \(green)")
+        print("Color \(blue)")
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         print("Time of day hour: \(hour)")
-        if hour < 17 || hour < 7{
+        if hour > 17 && hour < 7{
             self.view.backgroundColor = UIColor.darkGray
+        } else {
+            self.view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
         }
         
         print("ConversionViewController loaded its view.")
