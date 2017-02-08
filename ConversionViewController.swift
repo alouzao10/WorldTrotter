@@ -60,6 +60,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         print("Color \(green)")
         print("Color \(blue)")
         let date = Date()
+        print("Time of day hour: \(date)")
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         print("Time of day hour: \(hour)")
