@@ -29,19 +29,7 @@ class WebViewController: UIViewController, WKNavigationDelegate{
         webView.allowsBackForwardNavigationGestures = true
         
     }
-    
-    //var webView: WKWebView!
-   /* override func loadView() {
-        webView = WKWebView()
-        view = webView
-        
-        let url = URL(string: "www.bignerdranch.com")!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
-        
-    }*/
-    
-  
+      
 }
 
 
