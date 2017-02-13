@@ -100,6 +100,9 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         print("Replacement text: \(string)")
         let currentLocale = Locale.current
         let decimalSeparator = currentLocale.decimalSeparator ?? "."
+        //let negativeSeparator = currentLocale.decimalSeparator ?? "-"
+        //let existingTextHasNegativeSeparator = textField.text?.range(of: negativeSeparator)
+        //let replacementTextHasNegativeSeparator = string.range(of: negativeSeparator)
         let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
         let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
         
