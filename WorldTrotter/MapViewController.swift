@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+class MapViewController: UIViewController, MKMapViewDelegate{
     
     var mapView: MKMapView!
     var location: CLLocation!
@@ -21,11 +21,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        locationManager.delegate = self // the instance of the view itself MapViewController
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
         print("MapViewController loaded its view.")
     }
     
@@ -33,6 +28,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView = MKMapView()
         mapView.delegate = self
         view = mapView
+        locationManager.requestAlwaysAuthorization()
+        
+        
+        let pinButton: UIButton = UIButton(frame: CGRect(x:250, y:100, width: 100, height: 50))
+        pinButton.setTitle("Get Pins", for: .normal)
+        pinButton.backgroundColor = UIColor.blue
+        pinButton.addTarget(self, action: #selector(getPins), for: .touchUpInside)
+        self.view.addSubview(pinButton)
+        let locButton: UIButton = UIButton(frame: CGRect(x:16, y:100, width: 150, height: 50))
+        locButton.setTitle("Get Location", for: .normal)
+        locButton.backgroundColor = UIColor.blue
+        locButton.addTarget(self, action: #selector(getUserLoc), for: .touchUpInside)
+        self.view.addSubview(locButton)
+        
         
         let standardString = NSLocalizedString("Standard", comment: "Standard map view")
         let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
@@ -64,14 +73,70 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("Stop Loc")
     }
     
-    @IBAction func getCurrLoc(sender: AnyObject){
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
-        mapView.setRegion(region, animated: true)
+    func getUserLoc(_ sender: UIButton){
+        print("Getting User Location")
+        // Click once go to location
+        mapView.showsUserLocation = true
+        // clicked again zoom back out
+        // Have the sender reset the image view
+        sender.addTarget(self, action: #selector(reset), for: .touchUpInside)
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func reset(){
+        loadView()
+    }
+    
+    
+    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation){
+        //print("Getting User Location")
+        let lat = mapView.userLocation.coordinate.latitude
+        let long = mapView.userLocation.coordinate.longitude
+        print("Lat = \(lat) and Long = \(long) of User")
+        let latDelta:CLLocationDegrees = 0.05
+        let longDelta:CLLocationDegrees = 0.05
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
+        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        
+        mapView.setRegion(region, animated: true)
+
+    }
+    
+    func getPins(){
+        
+        let latitude1:CLLocationDegrees = 40.7684
+        let longitude1:CLLocationDegrees = -74.1454
+        
+        let latitude2:CLLocationDegrees = 35.9732
+        let longitude2:CLLocationDegrees = -79.9950
+        
+        let latitude3:CLLocationDegrees = 43.7332
+        let longitude3:CLLocationDegrees = -7.6740
+        
+        
+        // have the button go through the pinned locations
+        print("Getting A Pin")
+        
+        
+        let pin1 = MKPointAnnotation()
+        let pin2 = MKPointAnnotation()
+        let pin3 = MKPointAnnotation()
+        pin1.coordinate.latitude = latitude1
+        pin1.coordinate.longitude = longitude1
+        pin2.coordinate.latitude = latitude2
+        pin2.coordinate.longitude = longitude2
+        pin3.coordinate.latitude = latitude3
+        pin3.coordinate.longitude = longitude3
+        pin1.title = "I Was Born Here"
+        pin2.title = "I Am Here"
+        pin3.title = "I Want To Be Here"
+        mapView.addAnnotation(pin1)
+        mapView.addAnnotation(pin2)
+        mapView.addAnnotation(pin3)
+    }
+    
+    /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //let userLoc:CLLocation = locations[0]
         
         let latitude1:CLLocationDegrees = 40.7684
@@ -120,19 +185,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.addAnnotation(pin2)
         mapView.addAnnotation(pin3)
 
-    }
+    }*/
     
     func mapTypeChanged(_ segControl: UISegmentedControl){
         switch segControl.selectedSegmentIndex{
         case 0:
             mapView.mapType = .standard
-            mapView.showsUserLocation = true
+            //mapView.showsUserLocation = true
         case 1:
             mapView.mapType = .hybrid
-            mapView.showsUserLocation = true
+            //mapView.showsUserLocation = true
         case 2:
             mapView.mapType = .satellite
-            mapView.showsUserLocation = true
+            //mapView.showsUserLocation = true
         default:
             break
         }
