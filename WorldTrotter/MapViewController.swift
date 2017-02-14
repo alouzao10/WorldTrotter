@@ -16,8 +16,6 @@ class MapViewController: UIViewController, MKMapViewDelegate{
     var location: CLLocation!
     let locationManager = CLLocationManager()
 
-    //self.mapView.delegate = self // where should this be in code -> loadView
-    
     
     override func viewDidLoad() {
         print("MapViewController loaded its view.")
