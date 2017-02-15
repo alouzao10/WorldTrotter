@@ -39,8 +39,6 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         pinButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
         pinButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
         
-        
-        
         //let locButton: UIButton = UIButton(frame: CGRect(x:16, y:100, width: 150, height: 50))
         let locButton: UIButton = UIButton()
         locButton.setTitle("Get Location", for: .normal)
@@ -51,8 +49,6 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         locButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
         locButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
 
-       
-        
         
         let standardString = NSLocalizedString("Standard", comment: "Standard map view")
         let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
