@@ -26,19 +26,32 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         mapView.delegate = self
         view = mapView
         locationManager.requestAlwaysAuthorization()
+        let margins = view.layoutMarginsGuide
         
-        
-        let pinButton: UIButton = UIButton(frame: CGRect(x:250, y:100, width: 100, height: 50))
+        //let pinButton: UIButton = UIButton(frame: CGRect(x:250, y:100, width: 100, height: 50))
+        let pinButton = UIButton()
         pinButton.setTitle("Get Pins", for: .normal)
         pinButton.backgroundColor = UIColor.blue
         pinButton.tag = 1
-        pinButton.addTarget(self, action: #selector(getPins), for: .touchUpInside)
-        self.view.addSubview(pinButton)
-        let locButton: UIButton = UIButton(frame: CGRect(x:16, y:100, width: 150, height: 50))
+        pinButton.addTarget(self, action: #selector(getPins(_ :)), for: .touchUpInside)
+        view.addSubview(pinButton)
+        pinButton.translatesAutoresizingMaskIntoConstraints = false
+        pinButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
+        pinButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        
+        
+        
+        //let locButton: UIButton = UIButton(frame: CGRect(x:16, y:100, width: 150, height: 50))
+        let locButton: UIButton = UIButton()
         locButton.setTitle("Get Location", for: .normal)
         locButton.backgroundColor = UIColor.blue
-        locButton.addTarget(self, action: #selector(getUserLoc), for: .touchUpInside)
-        self.view.addSubview(locButton)
+        locButton.addTarget(self, action: #selector(getUserLoc(_ :)), for: .touchUpInside)
+        view.addSubview(locButton)
+        locButton.translatesAutoresizingMaskIntoConstraints = false
+        locButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
+        locButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+
+       
         
         
         let standardString = NSLocalizedString("Standard", comment: "Standard map view")
@@ -52,8 +65,8 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControl)
         
+        
         let topConst = segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8)
-        let margins = view.layoutMarginsGuide
         let leadingConst = segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
         let trailingConst = segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
         
