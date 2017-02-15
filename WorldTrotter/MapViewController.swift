@@ -15,6 +15,7 @@ class MapViewController: UIViewController, MKMapViewDelegate{
     var mapView: MKMapView!
     var location: CLLocation!
     let locationManager = CLLocationManager()
+    var pinPress:Int = 0
 
     
     override func viewDidLoad() {
@@ -39,8 +40,9 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         pinButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
         pinButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
         
+        
         //let locButton: UIButton = UIButton(frame: CGRect(x:16, y:100, width: 150, height: 50))
-        let locButton: UIButton = UIButton()
+        let locButton = UIButton()
         locButton.setTitle("Get Location", for: .normal)
         locButton.backgroundColor = UIColor.blue
         locButton.addTarget(self, action: #selector(getUserLoc(_ :)), for: .touchUpInside)
@@ -49,7 +51,6 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         locButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
         locButton.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
 
-        
         let standardString = NSLocalizedString("Standard", comment: "Standard map view")
         let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
         let satelliteString = NSLocalizedString("Satellite", comment: "Satellite map view")
@@ -60,7 +61,6 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         segmentedControl.addTarget(self, action: #selector(MapViewController.mapTypeChanged(_:)), for: .valueChanged)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControl)
-        
         
         let topConst = segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8)
         let leadingConst = segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
@@ -90,8 +90,23 @@ class MapViewController: UIViewController, MKMapViewDelegate{
     }
     
     func reset(){
-        loadView()
+        if pinPress == 0{
+            loadView()
+        } else {
+             let lat = mapView.userLocation.coordinate.latitude
+             let long = mapView.userLocation.coordinate.longitude
+             print("Lat = \(lat) and Long = \(long) of User")
+             let latDelta:CLLocationDegrees = 0.05
+             let longDelta:CLLocationDegrees = 0.05
+             let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+             let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, long)
+             let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+             
+             mapView.setRegion(region, animated: true)
+        }
     }
+    
+    //mapview didStopLocatingUser()
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation){
         //print("Getting User Location")
@@ -111,7 +126,7 @@ class MapViewController: UIViewController, MKMapViewDelegate{
     func getPins(_ sender: UIButton){
         // have the button go through the pinned locations
         //print("Getting A Pin")
-        
+        pinPress = 1
         switch sender.tag{
         case 1:
             let lat:CLLocationDegrees = 40.7684
@@ -131,6 +146,7 @@ class MapViewController: UIViewController, MKMapViewDelegate{
             mapView.addAnnotation(pin1)
             sender.tag += 1
             print(sender.tag)
+            pinPress = 1
             break;
         case 2:
             let lat:CLLocationDegrees = 35.9732
@@ -150,6 +166,7 @@ class MapViewController: UIViewController, MKMapViewDelegate{
             mapView.addAnnotation(pin2)
             sender.tag += 1
             print(sender.tag)
+            pinPress = 1
             break;
         case 3:
             let lat:CLLocationDegrees = 43.7332
@@ -168,9 +185,13 @@ class MapViewController: UIViewController, MKMapViewDelegate{
             pin3.title = "I Want To Be Here"
             mapView.addAnnotation(pin3)
             sender.tag += 1
+            pinPress = 1
             break;
         case 4:
-            mapView.showsUserLocation = true
+            // check if get location is already done so it wont reset
+            pinPress = 1
+            loadView()
+
             sender.tag = 1
         default: ()
             break;
