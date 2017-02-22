@@ -47,9 +47,10 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
             fahrenheitValue = nil
         }
     }
-    // SEE WB FOR NOTES
-    //    use viewDidAppear to change the color of the background
-    //    make the background color different on each launch
+    // Generates a random color to assign to the background of the 
+    // temperature tab. It will also change the color to a dark gray
+    // once the time reaches 5 in the evening, and stay like that until 7 am
+
     
     override func viewWillAppear(_ animated: Bool){
         super.viewDidLoad()
@@ -82,17 +83,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         return nf
     }()
     
+    // Sets the text field to allow user input and check so that only one 
+    // decimal or comma can be entered depending on the region.
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String)->Bool{
-        /*for chr in  string{
-            if(!(chr >= 'a' && chr <= 'z') && !(chr >= 'a' && char <= 'z'))
-        }*/
-        
-        //let numSet = NSCharacterSet.decimalDigits
-        //let charSet = NSCharacterSet(charactersIn: string)
-        //return numSet.isSuperset(of: charSet as CharacterSet)
-        
         let allowed =
             string.rangeOfCharacter(from: (NSCharacterSet(charactersIn: "0123456789.,-")) as CharacterSet)
         
@@ -100,22 +95,14 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         print("Replacement text: \(string)")
         let currentLocale = Locale.current
         let decimalSeparator = currentLocale.decimalSeparator ?? "."
-        //let negativeSeparator = currentLocale.decimalSeparator ?? "-"
-        //let existingTextHasNegativeSeparator = textField.text?.range(of: negativeSeparator)
-        //let replacementTextHasNegativeSeparator = string.range(of: negativeSeparator)
         let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
         let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
-        
-        /*if string.rangeOfCharacter(from: NSCharacterSet.letters) != nil{
-           return false
-        }*/
+
         if (existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil
             || allowed == nil && string.characters.count >= 1){
             return false
-            //return numSet.isSuperset(of: charSet as CharacterSet)
         } else {
                return true
-               //return numSet.isSuperset(of: charSet as CharacterSet)
         }
    }
     
